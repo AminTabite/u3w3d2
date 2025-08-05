@@ -16,17 +16,8 @@ const NavbarSp = () => {
             <Link className="nav-link" to="/">
               Home
             </Link>
-            <Link className="nav-link" to="/class">
-              Class
-            </Link>
-            <Link className="nav-link" to="/form">
-              Form
-            </Link>
-            <Link className="nav-link" to="/fetch">
-              Fetch
-            </Link>
-            <Link className="nav-link" to="/other">
-              Other
+            <Link className="nav-link" to="/details">
+              Details
             </Link>
           </Nav>
         </Navbar.Collapse>

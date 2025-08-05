@@ -4,3 +4,12 @@ body,
   height: 100%;
   height: auto;
 }
+div img {
+  width: 300px;
+  height: 450px;
+  object-fit: cover;
+}
+
+.d-flex .card {
+  height: 100%;
+}

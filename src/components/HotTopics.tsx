@@ -1,7 +1,7 @@
 import { useState, useEffect, useNavigate } from "react";
 import { Container, Row, Col, Spinner, Card, Button } from "react-bootstrap";
 import { Article } from "../types/interfaceArticle";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 const HotTopics = () => {
   const [articles, setArticles] = useState<Article[]>([]);
@@ -47,13 +47,27 @@ const HotTopics = () => {
           </Col>
         ) : (
           articles.map((a) => (
-            <Col key={a.id} xs={12} md={6} xl={4} className="mb-4">
-              <Card key={a.id}>
-                <Card.Img variant="top" src={a.image_url} />
-                <Card.Body>
-                  <Card.Title>{a.title}</Card.Title>
-                </Card.Body>
-              </Card>
+            <Col key={a.id} xs={12} md={6} xl={4} className="mb-4 d-flex">
+              <Link
+                to={`/details/${a.id}`}
+                className="text-decoration-none text-body">
+                <Card className="flex-grow-1">
+                  <div>
+                    {" "}
+                    <Card.Img
+                      className="fluid"
+                      variant="top"
+                      src={a.image_url}
+                    />
+                  </div>
+                  <Card.Body>
+                    <Card.Title>{a.title}</Card.Title>
+                    <Card.Text>{a.published_at.slice(-0, 10)}</Card.Text>
+                    <Card.Text>{a.news_site}</Card.Text>
+                    <Card.Text>{a.summary}</Card.Text>
+                  </Card.Body>
+                </Card>
+              </Link>
             </Col>
           ))
         )}
